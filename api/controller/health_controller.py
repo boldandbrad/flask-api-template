@@ -1,14 +1,13 @@
-
 from json import dumps
 
 from flask import Blueprint, Response
 
-from api.__version__ import __description__, __title__, __version__
+from api import __description__, __title__, __version__
 
 health_controller = Blueprint('health_controller', __name__)
 
 
-@health_controller.route('/')
+@health_controller.route('/', methods=['GET'])
 def health_check() -> Response:
     """
     Check the current status of the api
@@ -22,4 +21,4 @@ def health_check() -> Response:
         'status': 'healthy'
     }
 
-    return Response(dumps(api_status), status=200, mimetype='application/json')
+    return Response(dumps(api_status, indent=4), status=200, mimetype='application/json')
