@@ -2,7 +2,8 @@
 import cherrypy
 from flask import Flask
 
-from app.controller import health_controller
+from api.controller import health_controller
+from api.util import set_server_configs
 
 
 def run_server() -> Flask:
@@ -12,10 +13,7 @@ def run_server() -> Flask:
     app.register_blueprint(health_controller)
 
     cherrypy.tree.graft(app, '/')
-    cherrypy.config.update({'server.socket_host': '0.0.0.0',
-                            'server.socket_port': 5000,
-                            'engine.autoreload.on': False,
-                            })
+    set_server_configs()
 
     return cherrypy.server.start()
 
