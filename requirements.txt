@@ -1,3 +1,4 @@
 cherrypy
 flask
+Flask-SQLAlchemy
 marshmallow

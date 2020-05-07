@@ -23,6 +23,7 @@ HERE = os.path.abspath(os.path.dirname(__file__))
 REQUIRES = [
     'cherrypy',
     'flask',
+    'Flask-SQLAlchemy',
     'marshmallow'
 ]
 
