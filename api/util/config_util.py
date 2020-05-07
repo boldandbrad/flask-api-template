@@ -9,6 +9,7 @@ def set_server_configs() -> None:
     :return: None
     """
     cherrypy.config.update(_get_conf_for_env('global'))
+    cherrypy.config.update({'server.socket_port': int(os.environ.get('PORT', 5000))})
 
 
 def _get_conf_for_env(env: str) -> str:
