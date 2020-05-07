@@ -5,7 +5,7 @@ from api.controller import health_controller
 from api.util import set_server_configs
 
 
-def run_server() -> Flask:
+def run_server():
 
     app = Flask(__name__)
 
@@ -14,7 +14,7 @@ def run_server() -> Flask:
     cherrypy.tree.graft(app, '/')
     set_server_configs()
 
-    return cherrypy.server.start()
+    cherrypy.server.start()
 
 
 if __name__ == '__main__':
